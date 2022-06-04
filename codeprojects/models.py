@@ -1,8 +1,6 @@
 from asyncio import constants
 from operator import mod
-from turtle import title
 from django.db import models
-from sqlalchemy import true
 from education.models import Course
 
 
@@ -47,7 +45,7 @@ class ProjectLanguage(models.Model):
     """
     Ensure each project/language pairing can only be added to each list once 
     """
-    constants = [models.UniqueConstraint(fields=["project", "language"], name='unique_pairing')]
+    constraints = [models.UniqueConstraint(fields=["project", "language"], name='unique_pairing')]
   
   project = models.ForeignKey(Project, related_name="project_languages", on_delete=models.CASCADE)
   language = models.ForeignKey(Language, related_name="project_languages", on_delete=models.CASCADE)
