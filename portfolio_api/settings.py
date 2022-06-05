@@ -26,7 +26,7 @@ SECRET_KEY = 'c$2+p_+^3$tpdr_o&6xuxac(cj=t8*k2xw45suf1al4r8xni@6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'amporfolioapi.herokuapp.com']
 
 
 # Application definition
