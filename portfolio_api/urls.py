@@ -18,6 +18,10 @@ from django.urls import path, include
 from rest_framework import routers 
 from portfolio_api.quickstart import views
 
+from django.views.static import serve
+from django.conf.urls import url
+from django.conf import settings
+
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
@@ -32,4 +36,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include("rest_framework.urls", namespace="rest_framework")),
     path('admin/', admin.site.urls),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
